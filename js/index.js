@@ -2,9 +2,9 @@ function buttonTipo(tipos) {
     let buttons = "";
     tipos.forEach((value, index) => {
       let name = getTipo(value.type.name);
-      buttons += `<button class="btn btn-#{name} text-white">${name}</button>`;
+      buttons += `<button class="btn btn-${name} text-white">${name}</button>`;
     });
-    return buttons
+    return buttons;
 }
 
 async function loadPokemons() {
@@ -16,18 +16,18 @@ async function loadPokemons() {
         div.innerHTML += `<div class="col">
                         <a href="detalhes.html?numero=${
                             pokemon.id
-                        }"class="text-decoration-none">
+                        }" class="text-decoration-none">
                         <div class="card" style="background-color:${getCor(
                             pokemon.types[0].type.name
                         )}">
                               <img src ="${
                                 pokemon.sprites.other["official-artwork"].front_default
                               }" alt="${pokemon.name}" class="card-img-top">
-                              <div class="card-bdoy text-white">
+                              <div class="card-body text-white">
                                   <h5 class="card-text mb-1">Nº ${pokemon.id
                                     .toString()
                                     .padStart(3, "0")}</h5>
-                                  <h3 class="card-title">${capitalizeFirsLetter(
+                                  <h3 class="card-title">${capitalizeFirstLetter(
                                     pokemon.name
                                   )}</h3>
                                   <div class="d-flex gap-2 my-2">
@@ -49,7 +49,7 @@ async function search() {
     if (search = "") initializePage();
     else {
         const pokemon = await searchPokemon();
-        div.innetHTML = `<div class="col">
+        div.innerHTML = `<div class="col">
                     <a href ="detalhes.html?numero=${
                         pokemon.id
                     }" class="text-decoration-none">
@@ -63,7 +63,7 @@ async function search() {
                             <h5 class="card-text mb-1">Nº ${pokemon.id
                                 .toString()
                                 .padStart(3, "0")}</h5>
-                            <h3 class="card-title">${capitalizeFirsLetter(
+                            <h3 class="card-title">${capitalizeFirstLetter(
                                 pokemon.name
                             )}</h3>
                             <div class="d-flex gap-2 my-2">

@@ -3,7 +3,7 @@ let topo;
 let loading = false;
 let filtered = false;
 
-const url = "https://pokeapi.co/api/v2";
+const url = "https://pokeapi.co/api/v2/";
 
 const allTypes = [
     "steel",
@@ -26,7 +26,7 @@ const allTypes = [
     "flying",
 ];
 
-const tpdosTipos = [
+const todosTipos = [
     {nome: "Aço", cor: "rgba(170, 170, 187, 0.75)" },
     {nome: "Água", cor: "rgba(51, 153, 255, 0.75)" },
     {nome: "Dragão", cor: "rgba(119, 102, 238, 0.75)" },
@@ -49,19 +49,19 @@ const tpdosTipos = [
 
 function getTipo(name) {
     const index = allTypes.indexOf(name);
-    return tpdosTipos[index].nome;
+    return todosTipos[index].nome;
 }
 
 function getCor(name) {
     const index = allTypes.indexOf(name);
-    return tpdosTipos[index].cor;
+    return todosTipos[index].cor;
 }
 
 async function getPokemon(resource) {
     try {
         const response = await fetch(url + resource);
         if(!response.ok) {
-            return null
+            return null;
         }
         return await response.json();
     } catch (error){
@@ -85,7 +85,7 @@ function capitalizeFirstLetter(string) {
 }
 
 function carousel(sprites){
-  return `<div id="carouselExampleAutoplaying" class"carousel slide" data-bs-ride="carousel">
+  return `<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class = "carousel-item-active">
                     <img src="${sprites.other["official-artwork"].front_default}" class="d-block w-100" alt="Padrão">
@@ -105,3 +105,4 @@ function carousel(sprites){
           </div>`;
 }
 
+    
